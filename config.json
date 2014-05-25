@@ -1,0 +1,34 @@
+{
+	"template_dir": "templates", 
+	"content_dir": "contents",
+	"output_dir": "output",
+
+	"server": { 
+		"port": 9009
+	},
+
+	"bundles": {
+		"/css/all.css": [
+			"/css/nivo-slider.css",
+			"/css/nivo-slider-themes/default/default.css",
+			"/css/main.css"
+		],
+		"/js/all.js": [
+			"/js/jquery.nivo.slider.pack.js",
+			"/js/site.js"
+		]	
+	},
+
+    "plugins": {
+        "publishers": {
+            "git_strategy": "./lib/punch-git-publisher.js" 
+        }
+    },
+
+    "publish": {
+	    "strategy": "git_strategy",
+        "options": {
+            "repo_url": "git@github.com:avalez/avalez.github.com.git"
+        }
+	}
+}

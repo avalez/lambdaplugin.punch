@@ -1,0 +1,53 @@
+{{> header }}
+<div id="main">
+  <section>
+    <div class="row-fluid">
+      <div class="span9">
+
+        <div class="slider-wrapper theme-default">
+          <div id="slider" class="nivoSlider">
+            <img src="/images/timereports-timesheet.png" data-thumb="images/timereports-timesheet.png" alt="Time Sheet Report"/>
+            <img src="/images/timereports-pivot.png" data-thumb="images/timereports-pivot.png" alt="Pivot Time Report"/>
+            <img src="/images/timereports-planned-vs-actual.png" data-thumb="images/timereports-planned-vs-actual.png" alt="Planned vs Actual Time Report" />
+            </div>
+        </div>
+      </div>
+
+      <!-- sidebar -->
+      <div class="span3 sidemenu">
+        <a href="https://marketplace.atlassian.com/plugins/lambda-plugin"><img src="/images/marketplace_available_light_180x80.png" title="Available on the Atlassian Marketplace" alt="Available on the Atlassian Marketplace"/></a>
+        <ul>
+          <li><a href="/security.html">Security Statement</a></li>
+          <li><a href="https://bitbucket.org/azhdanov/jiratimesheet/issues?status=new&status=open&component=Time%20Reports" target="blank">Issues</a><i class="icon-external-link"></i></li>
+        </ul>
+      </div>
+      <!-- /sidebar -->
+
+    </div>
+  </section>
+
+  <section>
+    <div class="row-fluid">
+        <div class="hero-unit">
+          Decode issue fields with instant expressions.
+        </div>
+   </div>
+  </section>
+
+
+  <section>
+    <div class="row-fluid">
+	  <div class="span9">
+	    <h2>{{{title}}}</h2>
+	    {{{contents}}}
+	    <p class="pull-right">
+	      <a href="#" data-href="#top" class="back-to-top">Back to Top</a>
+	    </p>
+	  </div>
+    </div>
+  </section>
+
+</div>
+<!-- /main -->
+
+{{> footer }}
