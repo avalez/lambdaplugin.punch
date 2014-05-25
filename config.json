@@ -20,15 +20,16 @@
 	},
 
     "plugins": {
+        "content_handler": "./lib/rest_content_handler",
         "publishers": {
             "git_strategy": "./lib/punch-git-publisher.js" 
         }
     },
 
     "publish": {
-	    "strategy": "git_strategy",
+        "strategy": "git_strategy",
         "options": {
-            "repo_url": "git@github.com:avalez/avalez.github.com.git"
+            "repo_url": "git@github.com:avalez/lambdaplugin.punch"
         }
 	}
 }
