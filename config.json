@@ -29,7 +29,8 @@
     "publish": {
         "strategy": "git_strategy",
         "options": {
-            "repo_url": "git@github.com:avalez/lambdaplugin.punch"
+            "repo_url": "git@github.com:avalez/lambdaplugin.punch",
+            "branch": "gh-pages"
         }
 	}
 }
