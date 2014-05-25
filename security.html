@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+    <meta name="description" content="Decode issue fields with instant expression columns in JIRA">
+    <meta name="author" content="Andriy Zhdanov">
+    <meta name="keywords" content="find issues, decode, columns, expression, report, reporting, project management">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Security Statement | Time Reports for JIRA OnDemand</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="http://netdna.bootstrapcdn.com/bootswatch/2.3.2/cerulean/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/all-1400883336000.css"> 
+    <link rel="shortcut icon" href="/favicon.ico"/>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/jquery-1.7.2.min.js"><\/script>')</script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="/js/all-1400963311000.js"></script> 
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-30916140-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+</head>
+
+<body id="top">
+
+<div class="navbar navbar-inverse navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container">
+        <button type="button" class="btn btn-navbar"
+                data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      <a class="brand" href="#" style="font-family: Verdana">λ</a>
+        <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li id="home" ><a href="/">Home</a><span></span></li>
+          <!--li id="wiki" ><a href="/wiki/Overview.html">Documentation</a><span></span></li>
+          <li id="support" ><a href="/support.html">Support</a><span></span></li-->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  
+  <header>
+    <div class="row-fluid">
+      <div class="span12">
+        <h1>Lambda Plugin</h1>
+        <p class="lead">Decode issue fields with instant expressions</p>
+      </div>
+    </div>
+  </header>
+
+  <div id="content">
+
+
+  <div id="main">
+    <section>
+      <div class="row-fluid">
+        <div class="span9">
+            <h2 id="security-statement">Security Statement</h2>
+<p>Lambda Add-On for JIRA OnDemand is <a href="https://developer.atlassian.com/static/connect/docs/">Atlassian Connect Add-On</a> (Add-On) Software as a Service (SaaS) hosted on <a href="https://www.heroku.com">Heroku</a> cloud platform. </p>
+<h3 id="data-security">Data Security</h3>
+<p>The Add-On persists JIRA host details (i.e., client key, host public key and host base url) required for interoperability with JIRA. I.e. no client details passed or no end user details are persisted.</p>
+<p>E.g. of information that is passed (but not persisted as it is) to Add-On:</p>
+<pre><code>GET /timereports?tz=Europe%2FBerlin&amp;loc=en-US&amp;user_id=admin&amp;user_key=admin&amp;xdm_e=http%3A%2F%2Flocalhost%3A2990&amp;xdm_c=channel-timereports&amp;cp=%2Fjira&amp;lic=none&amp;jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjEzOTY5NjcyMjYsInN1YiI6ImFkbWluIiwiaXNzIjoiamlyYTpkODc5Y2M3Zi0yOTBhLTQ2NDctODM5Zi05MmJlNTI4NTc2NGEiLCJxc2giOiIzMWQ4YzZhMjUwZTA5MTY4ODNjNzMxZjRmN2UyZTdmNjdkMzNhMjBlMWUxMDM2YmM0ODg2OWNmMzU1ODgzNGQ4IiwiaWF0IjoxMzk2OTY3MDQ2fQ.egC3xw1Ul7Zx9uJ5KrxLMZ8ggSRCj5pMBcxKq9HRq_E 200 12ms
+</code></pre><p>Additionally Add-On persists user-defined expressions, separating them by clientKey, so each of them is visible to client who created them only, though to all users of the same client JIRA.</p>
+<p>No further communication is happening between Add-On host and JIRA host.</p>
+<p>Thereafter all data (specifically search results) is requested and processed by add-on client side code in End User Browser and is not passed anywhere else.</p>
+<p>Here is the list of JIRA REST API used:</p>
+<ul>
+<li><a href="https://docs.atlassian.com/jira/REST/6.2/#d2e2438">/rest/api/2/search</a> - issues and time tracking data.</li>
+<li><a href="https://docs.atlassian.com/jira/REST/6.2/#d2e1283">/rest/api/2/filter/favourite</a> - filters for Filter reports&#39; option.</li>
+</ul>
+<p>Note, Add-On declares READ <a href="https://developer.atlassian.com/static/connect/docs/scopes/scopes.html">scope</a> to access data as just described.</p>
+<h3 id="refernces">Refernces</h3>
+<ul>
+<li><a href="https://www.heroku.com/policy/security">Heroku Security</a></li>
+<li><a href="https://www.atlassian.com/hosted/security">Atlassian OnDemand Security</a></li>
+</ul>
+
+        </div>
+        <!-- sidebar -->
+        <div class="span3 sidemenu">
+          <a href="https://marketplace.atlassian.com/plugins/lambda-plugin"><img src="/images/marketplace_available_light_180x80.png" title="Available on the Atlassian Marketplace" alt="Available on the Atlassian Marketplace"/></a>
+          <ul>
+            <li><a href="/security.html">Security Statement</a></li>
+            <li><a href="https://bitbucket.org/azhdanov/jiratimesheet/issues?status=new&status=open&component=Time%20Reports" target="blank">Issues</a><i class="icon-external-link"></i></li>
+          </ul>
+        </div>
+      <!-- /sidebar -->
+	  </div>
+    </section>
+  </div>
+  <!-- /main -->
+
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span3">
+        <h3>Contact Info</h3>
+        <div class="footer-list">
+        <ul>
+            <li><strong>Address: </strong>Prague, Czech Republic</li>
+            <li><strong>E-mail: </strong><a href="mailto:azhdanov@gmail.com">azhdanov@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    <div class="span3">
+        <h3>Links</h3>
+        <div class="footer-list">
+          <ul>
+            <li><a href="https://marketplace.atlassian.com/plugins/lambda-plugin-ondemand" target="blank">Atlassian Marketplace</a><i class="icon-external-link"></i></li>
+            <li><a href="https://answers.atlassian.com/tags/addon-lambda-plugin-ondemand/" target="blank">Atlassian Answers</a><i class="icon-external-link"></i></li>
+          </ul>
+        </div>
+      </div>
+    <div class="span3">
+        <h3>Site</h3>
+        <div class="footer-list">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/wiki/Overview.html">Documentation</a></li>
+            <li><a href="/support.html">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="span3">
+        <h3>Copyright</h3>
+        <p class="footer-list">&copy; Andriy Zhdanov, 2014</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="row-fluid">
+    <div class="span12">
+        <p class="pull-right">
+      <a href="#" data-href="#top" class="back-to-top">Back to Top</a>
+    </p>
+    </div>
+  </div>
+  </div>
+</div>
+
+</body>
+</html>
