@@ -1,0 +1,15 @@
+{
+  "name": "jiratimesheet.punch",
+  "description": "Punch for jiratimesheet.com website",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://bitbucket.org/azhdanov/azhdanov.punch",
+  "dependencies": {
+    "underscore": ">= 1.4.2",
+    "punch": ">= 0.5.44",
+    "request": ">= 2.34.0",
+    "jsonfile": "1.1.1",
+    "gift": "0.3.0",
+    "fs-extra": "0.8.1"
+  }
+}
