@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+    <meta name="description" content="Decode issue fields with instant expression columns in JIRA">
+    <meta name="author" content="Andriy Zhdanov">
+    <meta name="keywords" content="find issues, decode, columns, expression, report, reporting, project management">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Examples | Lambda Plugin</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="http://netdna.bootstrapcdn.com/bootswatch/2.3.2/cerulean/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/all-1401111045000.css"> 
+    <link rel="shortcut icon" href="/favicon.ico"/>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/jquery-1.7.2.min.js"><\/script>')</script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="/js/all-1401111045000.js"></script> 
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-30916140-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+</head>
+
+<body id="top">
+
+<div class="navbar navbar-inverse navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container">
+        <button type="button" class="btn btn-navbar"
+                data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      <a class="brand" href="#" style="font-family: Verdana">λ</a>
+        <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li id="home" ><a href="/">Home</a><span></span></li>
+          <li id="wiki" class="active"><a href="/wiki/Examples.html">Documentation</a><span></span></li>
+          <!--li id="support" ><a href="/support.html">Support</a><span></span></li-->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  
+  <header>
+    <div class="row-fluid">
+      <div class="span12">
+        <h1>Lambda Plugin</h1>
+        <p class="lead">Decode issue fields with instant expressions</p>
+      </div>
+    </div>
+  </header>
+
+  <div id="content">
+
+
+  <div id="main">
+    <section>
+      <div class="row-fluid">
+        <div class="span9">
+            <p>Expression column consists of two configurable elements, template and expression itself. Template provides endless possibilities for visualizing the value. Expression is optional, and is rather useful with default simple template only. Both template and expression can operate with <code>issue</code> and <code>column</code> javascript objects. Please see following examples and sample issue object below.</p>
+
+<h3><a id="Assignee" class="anchor" href="/wiki/Examples.html#Assignee"><span></span></a>Assignee</h3>
+
+<p>  Template:  <code>&lt;a href=&quot;{{$parent.hostBaseUrl}}/browse/{{issue.key}}?jql=assignee={{issue.fields.assignee.name}}&quot; ng-bind=&quot;issue.fields.assignee.displayName&quot; target=&quot;_parent&quot;&gt;&lt;/a&gt;</code></p>
+
+<h3><a id="Timespent" class="anchor" href="/wiki/Examples.html#Timespent"><span></span></a>Timespent</h3>
+
+<p>  Template: <code>&lt;span ng-bind=&quot;issue.fields.timespent | prettyHours&quot;/&gt;</code></p>
+
+<h3><a id="Rate" class="anchor" href="/wiki/Examples.html#Rate"><span></span></a>Rate</h3>
+
+<p>  Template (default): <code>&lt;span ng-bind=&quot;{{column.expression}}&quot;/&gt;</code></p>
+
+<p>  Expression: <code>(issue.fields.rate || 25) | currency</code></p>
+
+<h3><a id="Cost" class="anchor" href="/wiki/Examples.html#Cost"><span></span></a>Cost</h3>
+
+<p>  Template (default): <code>&lt;span ng-bind=&quot;{{column.expression}}&quot;/&gt;</code></p>
+
+<p>  Expression: <code>(issue.fields.timespent * (issue.fields.rate || 25) / 3600) | currency</code></p>
+
+<h2><a id="Sample_issue_JSON" class="anchor" href="/wiki/Examples.html#Sample_issue_JSON"><span></span></a>Sample issue JSON</h2>
+
+<p><code></code>`
+#!javascript</p>
+
+<pre><code>  { &quot;expand&quot; : &quot;editmeta,renderedFields,transitions,changelog,operations,worklog&quot;,
+    &quot;fields&quot; : { &quot;aggregateprogress&quot; : { &quot;percent&quot; : 100,
+            &quot;progress&quot; : 7200,
+            &quot;total&quot; : 7200
+          },
+        &quot;aggregatetimeestimate&quot; : 0,
+        &quot;aggregatetimeoriginalestimate&quot; : null,
+        &quot;aggregatetimespent&quot; : 7200,
+        &quot;assignee&quot; : { &quot;active&quot; : true,
+            &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
+              },
+            &quot;displayName&quot; : &quot;admin&quot;,
+            &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+            &quot;name&quot; : &quot;admin&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+          },
+        &quot;components&quot; : [  ],
+        &quot;created&quot; : &quot;2013-02-27T18:02:37.000+0100&quot;,
+        &quot;description&quot; : null,
+        &quot;duedate&quot; : null,
+        &quot;environment&quot; : null,
+        &quot;fixVersions&quot; : [  ],
+        &quot;issuelinks&quot; : [  ],
+        &quot;issuetype&quot; : { &quot;description&quot; : &quot;A problem which impairs or prevents the functions of the product.&quot;,
+            &quot;iconUrl&quot; : &quot;http://localhost:2990/jira/images/icons/bug.gif&quot;,
+            &quot;id&quot; : &quot;1&quot;,
+            &quot;name&quot; : &quot;Bug&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issuetype/1&quot;,
+            &quot;subtask&quot; : false
+          },
+        &quot;labels&quot; : [  ],
+        &quot;priority&quot; : { &quot;iconUrl&quot; : &quot;http://localhost:2990/jira/images/icons/priority_major.gif&quot;,
+            &quot;id&quot; : &quot;3&quot;,
+            &quot;name&quot; : &quot;Major&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/priority/3&quot;
+          },
+        &quot;progress&quot; : { &quot;percent&quot; : 100,
+            &quot;progress&quot; : 7200,
+            &quot;total&quot; : 7200
+          },
+        &quot;project&quot; : { &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/projectavatar?size=small&amp;pid=10000&amp;avatarId=10011&quot;,
+                &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/projectavatar?pid=10000&amp;avatarId=10011&quot;
+              },
+            &quot;id&quot; : &quot;10000&quot;,
+            &quot;key&quot; : &quot;TIME&quot;,
+            &quot;name&quot; : &quot;Timeship&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/project/TIME&quot;
+          },
+        &quot;reporter&quot; : { &quot;active&quot; : true,
+            &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
+              },
+            &quot;displayName&quot; : &quot;admin&quot;,
+            &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+            &quot;name&quot; : &quot;admin&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+          },
+        &quot;resolution&quot; : null,
+        &quot;resolutiondate&quot; : null,
+        &quot;status&quot; : { &quot;description&quot; : &quot;The issue is open and ready for the assignee to start work on it.&quot;,
+            &quot;iconUrl&quot; : &quot;http://localhost:2990/jira/images/icons/status_open.gif&quot;,
+            &quot;id&quot; : &quot;1&quot;,
+            &quot;name&quot; : &quot;Open&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/status/1&quot;
+          },
+        &quot;subtasks&quot; : [  ],
+        &quot;summary&quot; : &quot;Mega problem&quot;,
+        &quot;timeestimate&quot; : 0,
+        &quot;timeoriginalestimate&quot; : null,
+        &quot;timespent&quot; : 7200,
+        &quot;updated&quot; : &quot;2013-03-27T18:03:48.000+0100&quot;,
+        &quot;versions&quot; : [  ],
+        &quot;votes&quot; : { &quot;hasVoted&quot; : false,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/TIME-4/votes&quot;,
+            &quot;votes&quot; : 0
+          },
+        &quot;watches&quot; : { &quot;isWatching&quot; : false,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/TIME-4/watchers&quot;,
+            &quot;watchCount&quot; : 0
+          },
+        &quot;workratio&quot; : -1,
+        &quot;rate&quot;: 30
+      },
+    &quot;id&quot; : &quot;10003&quot;,
+    &quot;key&quot; : &quot;TIME-4&quot;,
+    &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/10003&quot;,
+    &quot;worklog&quot; : { &quot;maxResults&quot; : 2,
+        &quot;startAt&quot; : 0,
+        &quot;total&quot; : 2,
+        &quot;worklogs&quot; : [ { &quot;author&quot; : { &quot;active&quot; : true,
+                  &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                      &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
+                    },
+                  &quot;displayName&quot; : &quot;admin&quot;,
+                  &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+                  &quot;name&quot; : &quot;admin&quot;,
+                  &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+                },
+              &quot;comment&quot; : &quot;test&quot;,
+              &quot;created&quot; : &quot;2013-12-05T00:00:00.000+0100&quot;,
+              &quot;id&quot; : &quot;10000&quot;,
+              &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/10003/worklog/10000&quot;,
+              &quot;started&quot; : &quot;2014-02-24T18:03:48.589+0100&quot;,
+              &quot;timeSpent&quot; : &quot;1h&quot;,
+              &quot;timeSpentSeconds&quot; : 3600,
+              &quot;updateAuthor&quot; : { &quot;active&quot; : true,
+                  &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                      &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
+                    },
+                  &quot;displayName&quot; : &quot;admin&quot;,
+                  &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+                  &quot;name&quot; : &quot;admin&quot;,
+                  &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+                },
+              &quot;updated&quot; : &quot;2013-02-27T18:03:48.589+0100&quot;
+            },
+            { &quot;author&quot; : { &quot;active&quot; : true,
+                  &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                      &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
+                    },
+                  &quot;displayName&quot; : &quot;admin&quot;,
+                  &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+                  &quot;name&quot; : &quot;admin&quot;,
+                  &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+                },
+              &quot;comment&quot; : &quot;test&quot;,
+              &quot;created&quot; : &quot;2013-02-25T00:00:00.000+0100&quot;,
+              &quot;id&quot; : &quot;10001&quot;,
+              &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/10003/worklog/10001&quot;,
+              &quot;started&quot; : &quot;2014-02-25T18:03:48.762+0100&quot;,
+              &quot;timeSpent&quot; : &quot;1h&quot;,
+              &quot;timeSpentSeconds&quot; : 3600,
+              &quot;updateAuthor&quot; : { &quot;active&quot; : true,
+                  &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                      &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
+                    },
+                  &quot;displayName&quot; : &quot;admin&quot;,
+                  &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+                  &quot;name&quot; : &quot;admin&quot;,
+                  &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+                },
+              &quot;updated&quot; : &quot;2013-02-27T18:03:48.762+0100&quot;
+            }
+          ]
+      }
+  }</code></pre>
+
+<p><code></code>`</p>
+        </div>
+        <!-- sidebar -->
+        <div class="span3 sidemenu">
+          <!--ul>
+            <li><a href="/security.html">Security Statement</a></li>
+            <li><a href="https://bitbucket.org/azhdanov/jiratimesheet/issues?status=new&status=open&component=Time%20Reports" target="blank">Issues</a><i class="icon-external-link"></i></li>
+          </ul-->
+        </div>
+      <!-- /sidebar -->
+	  </div>
+    </section>
+  </div>
+  <!-- /main -->
+
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span3">
+        <h3>Contact Info</h3>
+        <div class="footer-list">
+        <ul>
+            <li><strong>Address: </strong>Prague, Czech Republic</li>
+            <li><strong>E-mail: </strong><a href="mailto:azhdanov@gmail.com">azhdanov@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    <div class="span3">
+        <h3>Links</h3>
+        <div class="footer-list">
+          <ul>
+            <li><a href="https://marketplace.atlassian.com/plugins/lambda-plugin-ondemand" target="blank">Atlassian Marketplace</a><i class="icon-external-link"></i></li>
+            <li><a href="https://answers.atlassian.com/tags/addon-lambda-plugin-ondemand/" target="blank">Atlassian Answers</a><i class="icon-external-link"></i></li>
+          </ul>
+        </div>
+      </div>
+    <div class="span3">
+        <h3>Site</h3>
+        <div class="footer-list">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/wiki/Examples.html">Documentation</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="span3">
+        <h3>Copyright</h3>
+        <p class="footer-list">&copy; Andriy Zhdanov, 2014</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="row-fluid">
+    <div class="span12">
+        <p class="pull-right">
+      <a href="#" data-href="#top" class="back-to-top">Back to Top</a>
+    </p>
+    </div>
+  </div>
+  </div>
+</div>
+
+</body>
+</html>
