@@ -5,3 +5,7 @@ Lambda Add-On enables user-defined instantly evaluated expressions for issues se
 Just go to Administration - Add Ons - Install in your JIRA, search for 'lambda', see 'Lambda Add-On for JIRA OnDemand' and click install.
 
 When installed Lambda Add-On adds `Decode issue fields` menu item under `Issues` menu. It provides single page to define expressions and apply them to issues search filter.
+
+## Usage
+
+Define your expression columns and see them immediately applied to search results. See [Documentation](wiki/Examples.html) for some examples.
