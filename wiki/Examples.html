@@ -105,155 +105,154 @@
 
 <h2><a id="Sample_issue_JSON" class="anchor" href="/wiki/Examples.html#Sample_issue_JSON"><span></span></a>Sample issue JSON</h2>
 
-<p><code>
-      { &quot;expand&quot; : &quot;editmeta,renderedFields,transitions,changelog,operations,worklog&quot;,
-        &quot;fields&quot; : { &quot;aggregateprogress&quot; : { &quot;percent&quot; : 100,
-                &quot;progress&quot; : 7200,
-                &quot;total&quot; : 7200
-              },
-            &quot;aggregatetimeestimate&quot; : 0,
-            &quot;aggregatetimeoriginalestimate&quot; : null,
-            &quot;aggregatetimespent&quot; : 7200,
-            &quot;assignee&quot; : { &quot;active&quot; : true,
-                &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
-                    &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
-                  },
-                &quot;displayName&quot; : &quot;admin&quot;,
-                &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
-                &quot;name&quot; : &quot;admin&quot;,
-                &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
-              },
-            &quot;components&quot; : [  ],
-            &quot;created&quot; : &quot;2013-02-27T18:02:37.000+0100&quot;,
-            &quot;description&quot; : null,
-            &quot;duedate&quot; : null,
-            &quot;environment&quot; : null,
-            &quot;fixVersions&quot; : [  ],
-            &quot;issuelinks&quot; : [  ],
-            &quot;issuetype&quot; : { &quot;description&quot; : &quot;A problem which impairs or prevents the functions of the product.&quot;,
-                &quot;iconUrl&quot; : &quot;http://localhost:2990/jira/images/icons/bug.gif&quot;,
-                &quot;id&quot; : &quot;1&quot;,
-                &quot;name&quot; : &quot;Bug&quot;,
-                &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issuetype/1&quot;,
-                &quot;subtask&quot; : false
-              },
-            &quot;labels&quot; : [  ],
-            &quot;priority&quot; : { &quot;iconUrl&quot; : &quot;http://localhost:2990/jira/images/icons/priority_major.gif&quot;,
-                &quot;id&quot; : &quot;3&quot;,
-                &quot;name&quot; : &quot;Major&quot;,
-                &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/priority/3&quot;
-              },
-            &quot;progress&quot; : { &quot;percent&quot; : 100,
-                &quot;progress&quot; : 7200,
-                &quot;total&quot; : 7200
-              },
-            &quot;project&quot; : { &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/projectavatar?size=small&amp;pid=10000&amp;avatarId=10011&quot;,
-                    &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/projectavatar?pid=10000&amp;avatarId=10011&quot;
-                  },
-                &quot;id&quot; : &quot;10000&quot;,
-                &quot;key&quot; : &quot;TIME&quot;,
-                &quot;name&quot; : &quot;Timeship&quot;,
-                &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/project/TIME&quot;
-              },
-            &quot;reporter&quot; : { &quot;active&quot; : true,
-                &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
-                    &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
-                  },
-                &quot;displayName&quot; : &quot;admin&quot;,
-                &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
-                &quot;name&quot; : &quot;admin&quot;,
-                &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
-              },
-            &quot;resolution&quot; : null,
-            &quot;resolutiondate&quot; : null,
-            &quot;status&quot; : { &quot;description&quot; : &quot;The issue is open and ready for the assignee to start work on it.&quot;,
-                &quot;iconUrl&quot; : &quot;http://localhost:2990/jira/images/icons/status_open.gif&quot;,
-                &quot;id&quot; : &quot;1&quot;,
-                &quot;name&quot; : &quot;Open&quot;,
-                &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/status/1&quot;
-              },
-            &quot;subtasks&quot; : [  ],
-            &quot;summary&quot; : &quot;Mega problem&quot;,
-            &quot;timeestimate&quot; : 0,
-            &quot;timeoriginalestimate&quot; : null,
-            &quot;timespent&quot; : 7200,
-            &quot;updated&quot; : &quot;2013-03-27T18:03:48.000+0100&quot;,
-            &quot;versions&quot; : [  ],
-            &quot;votes&quot; : { &quot;hasVoted&quot; : false,
-                &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/TIME-4/votes&quot;,
-                &quot;votes&quot; : 0
-              },
-            &quot;watches&quot; : { &quot;isWatching&quot; : false,
-                &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/TIME-4/watchers&quot;,
-                &quot;watchCount&quot; : 0
-              },
-            &quot;workratio&quot; : -1,
-            &quot;rate&quot;: 30
+<pre><code>{ 
+    &quot;expand&quot; : &quot;editmeta,renderedFields,transitions,changelog,operations,worklog&quot;,
+    &quot;fields&quot; : { &quot;aggregateprogress&quot; : { &quot;percent&quot; : 100,
+            &quot;progress&quot; : 7200,
+            &quot;total&quot; : 7200
           },
-        &quot;id&quot; : &quot;10003&quot;,
-        &quot;key&quot; : &quot;TIME-4&quot;,
-        &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/10003&quot;,
-        &quot;worklog&quot; : { &quot;maxResults&quot; : 2,
-            &quot;startAt&quot; : 0,
-            &quot;total&quot; : 2,
-            &quot;worklogs&quot; : [ { &quot;author&quot; : { &quot;active&quot; : true,
-                      &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
-                          &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
-                        },
-                      &quot;displayName&quot; : &quot;admin&quot;,
-                      &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
-                      &quot;name&quot; : &quot;admin&quot;,
-                      &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+        &quot;aggregatetimeestimate&quot; : 0,
+        &quot;aggregatetimeoriginalestimate&quot; : null,
+        &quot;aggregatetimespent&quot; : 7200,
+        &quot;assignee&quot; : { &quot;active&quot; : true,
+            &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
+              },
+            &quot;displayName&quot; : &quot;admin&quot;,
+            &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+            &quot;name&quot; : &quot;admin&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+          },
+        &quot;components&quot; : [  ],
+        &quot;created&quot; : &quot;2013-02-27T18:02:37.000+0100&quot;,
+        &quot;description&quot; : null,
+        &quot;duedate&quot; : null,
+        &quot;environment&quot; : null,
+        &quot;fixVersions&quot; : [  ],
+        &quot;issuelinks&quot; : [  ],
+        &quot;issuetype&quot; : { &quot;description&quot; : &quot;A problem which impairs or prevents the functions of the product.&quot;,
+            &quot;iconUrl&quot; : &quot;http://localhost:2990/jira/images/icons/bug.gif&quot;,
+            &quot;id&quot; : &quot;1&quot;,
+            &quot;name&quot; : &quot;Bug&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issuetype/1&quot;,
+            &quot;subtask&quot; : false
+          },
+        &quot;labels&quot; : [  ],
+        &quot;priority&quot; : { &quot;iconUrl&quot; : &quot;http://localhost:2990/jira/images/icons/priority_major.gif&quot;,
+            &quot;id&quot; : &quot;3&quot;,
+            &quot;name&quot; : &quot;Major&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/priority/3&quot;
+          },
+        &quot;progress&quot; : { &quot;percent&quot; : 100,
+            &quot;progress&quot; : 7200,
+            &quot;total&quot; : 7200
+          },
+        &quot;project&quot; : { &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/projectavatar?size=small&amp;pid=10000&amp;avatarId=10011&quot;,
+                &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/projectavatar?pid=10000&amp;avatarId=10011&quot;
+              },
+            &quot;id&quot; : &quot;10000&quot;,
+            &quot;key&quot; : &quot;TIME&quot;,
+            &quot;name&quot; : &quot;Timeship&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/project/TIME&quot;
+          },
+        &quot;reporter&quot; : { &quot;active&quot; : true,
+            &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
+              },
+            &quot;displayName&quot; : &quot;admin&quot;,
+            &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+            &quot;name&quot; : &quot;admin&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+          },
+        &quot;resolution&quot; : null,
+        &quot;resolutiondate&quot; : null,
+        &quot;status&quot; : { &quot;description&quot; : &quot;The issue is open and ready for the assignee to start work on it.&quot;,
+            &quot;iconUrl&quot; : &quot;http://localhost:2990/jira/images/icons/status_open.gif&quot;,
+            &quot;id&quot; : &quot;1&quot;,
+            &quot;name&quot; : &quot;Open&quot;,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/status/1&quot;
+          },
+        &quot;subtasks&quot; : [  ],
+        &quot;summary&quot; : &quot;Mega problem&quot;,
+        &quot;timeestimate&quot; : 0,
+        &quot;timeoriginalestimate&quot; : null,
+        &quot;timespent&quot; : 7200,
+        &quot;updated&quot; : &quot;2013-03-27T18:03:48.000+0100&quot;,
+        &quot;versions&quot; : [  ],
+        &quot;votes&quot; : { &quot;hasVoted&quot; : false,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/TIME-4/votes&quot;,
+            &quot;votes&quot; : 0
+          },
+        &quot;watches&quot; : { &quot;isWatching&quot; : false,
+            &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/TIME-4/watchers&quot;,
+            &quot;watchCount&quot; : 0
+          },
+        &quot;workratio&quot; : -1,
+        &quot;rate&quot;: 30
+      },
+    &quot;id&quot; : &quot;10003&quot;,
+    &quot;key&quot; : &quot;TIME-4&quot;,
+    &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/10003&quot;,
+    &quot;worklog&quot; : { &quot;maxResults&quot; : 2,
+        &quot;startAt&quot; : 0,
+        &quot;total&quot; : 2,
+        &quot;worklogs&quot; : [ { &quot;author&quot; : { &quot;active&quot; : true,
+                  &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                      &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
                     },
-                  &quot;comment&quot; : &quot;test&quot;,
-                  &quot;created&quot; : &quot;2013-12-05T00:00:00.000+0100&quot;,
-                  &quot;id&quot; : &quot;10000&quot;,
-                  &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/10003/worklog/10000&quot;,
-                  &quot;started&quot; : &quot;2014-02-24T18:03:48.589+0100&quot;,
-                  &quot;timeSpent&quot; : &quot;1h&quot;,
-                  &quot;timeSpentSeconds&quot; : 3600,
-                  &quot;updateAuthor&quot; : { &quot;active&quot; : true,
-                      &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
-                          &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
-                        },
-                      &quot;displayName&quot; : &quot;admin&quot;,
-                      &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
-                      &quot;name&quot; : &quot;admin&quot;,
-                      &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
-                    },
-                  &quot;updated&quot; : &quot;2013-02-27T18:03:48.589+0100&quot;
+                  &quot;displayName&quot; : &quot;admin&quot;,
+                  &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+                  &quot;name&quot; : &quot;admin&quot;,
+                  &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
                 },
-                { &quot;author&quot; : { &quot;active&quot; : true,
-                      &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
-                          &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
-                        },
-                      &quot;displayName&quot; : &quot;admin&quot;,
-                      &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
-                      &quot;name&quot; : &quot;admin&quot;,
-                      &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+              &quot;comment&quot; : &quot;test&quot;,
+              &quot;created&quot; : &quot;2013-12-05T00:00:00.000+0100&quot;,
+              &quot;id&quot; : &quot;10000&quot;,
+              &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/10003/worklog/10000&quot;,
+              &quot;started&quot; : &quot;2014-02-24T18:03:48.589+0100&quot;,
+              &quot;timeSpent&quot; : &quot;1h&quot;,
+              &quot;timeSpentSeconds&quot; : 3600,
+              &quot;updateAuthor&quot; : { &quot;active&quot; : true,
+                  &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                      &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
                     },
-                  &quot;comment&quot; : &quot;test&quot;,
-                  &quot;created&quot; : &quot;2013-02-25T00:00:00.000+0100&quot;,
-                  &quot;id&quot; : &quot;10001&quot;,
-                  &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/10003/worklog/10001&quot;,
-                  &quot;started&quot; : &quot;2014-02-25T18:03:48.762+0100&quot;,
-                  &quot;timeSpent&quot; : &quot;1h&quot;,
-                  &quot;timeSpentSeconds&quot; : 3600,
-                  &quot;updateAuthor&quot; : { &quot;active&quot; : true,
-                      &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
-                          &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
-                        },
-                      &quot;displayName&quot; : &quot;admin&quot;,
-                      &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
-                      &quot;name&quot; : &quot;admin&quot;,
-                      &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+                  &quot;displayName&quot; : &quot;admin&quot;,
+                  &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+                  &quot;name&quot; : &quot;admin&quot;,
+                  &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+                },
+              &quot;updated&quot; : &quot;2013-02-27T18:03:48.589+0100&quot;
+            },
+            { &quot;author&quot; : { &quot;active&quot; : true,
+                  &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                      &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
                     },
-                  &quot;updated&quot; : &quot;2013-02-27T18:03:48.762+0100&quot;
-                }
-              ]
-          }
+                  &quot;displayName&quot; : &quot;admin&quot;,
+                  &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+                  &quot;name&quot; : &quot;admin&quot;,
+                  &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+                },
+              &quot;comment&quot; : &quot;test&quot;,
+              &quot;created&quot; : &quot;2013-02-25T00:00:00.000+0100&quot;,
+              &quot;id&quot; : &quot;10001&quot;,
+              &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/issue/10003/worklog/10001&quot;,
+              &quot;started&quot; : &quot;2014-02-25T18:03:48.762+0100&quot;,
+              &quot;timeSpent&quot; : &quot;1h&quot;,
+              &quot;timeSpentSeconds&quot; : 3600,
+              &quot;updateAuthor&quot; : { &quot;active&quot; : true,
+                  &quot;avatarUrls&quot; : { &quot;16x16&quot; : &quot;http://localhost:2990/jira/secure/useravatar?size=small&amp;avatarId=10122&quot;,
+                      &quot;48x48&quot; : &quot;http://localhost:2990/jira/secure/useravatar?avatarId=10122&quot;
+                    },
+                  &quot;displayName&quot; : &quot;admin&quot;,
+                  &quot;emailAddress&quot; : &quot;admin@example.com&quot;,
+                  &quot;name&quot; : &quot;admin&quot;,
+                  &quot;self&quot; : &quot;http://localhost:2990/jira/rest/api/2/user?username=admin&quot;
+                },
+              &quot;updated&quot; : &quot;2013-02-27T18:03:48.762+0100&quot;
+            }
+          ]
       }
-</code></p>
+  }</code></pre>
         </div>
         <!-- sidebar -->
         <div class="span3 sidemenu">
