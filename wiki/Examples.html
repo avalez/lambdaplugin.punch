@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="http://netdna.bootstrapcdn.com/bootswatch/2.3.2/cerulean/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/all-1401111045000.css"> 
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/all-1401048654000.css"> 
     <link rel="shortcut icon" href="/favicon.ico"/>
 
     <!--[if lt IE 9]>
@@ -23,7 +23,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/jquery-1.7.2.min.js"><\/script>')</script>
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script src="/js/all-1401111045000.js"></script> 
+    <script src="/js/all-1401048654000.js"></script> 
 
     <script type="text/javascript">
 
@@ -85,11 +85,17 @@
 
 <h3><a id="Assignee" class="anchor" href="/wiki/Examples.html#Assignee"><span></span></a>Assignee</h3>
 
-<p>  Template:  <code>&lt;a href=&quot;{{$parent.hostBaseUrl}}/browse/{{issue.key}}?jql=assignee={{issue.fields.assignee.name}}&quot; ng-bind=&quot;issue.fields.assignee.displayName&quot; target=&quot;_parent&quot;&gt;&lt;/a&gt;</code></p>
+<p>  Template:</p>
+
+<pre><code>&lt;img src=&quot;{{issue.fields.assignee.avatarUrls[&#39;16x16&#39;]}}&quot;/&gt;&amp;nbsp;
+&lt;a href=&quot;{{$parent.hostBaseUrl}}/browse/{{issue.key}}?jql=assignee={{issue.fields.assignee.name}}&quot;
+    ng-bind=&quot;issue.fields.assignee.displayName&quot; target=&quot;_parent&quot;&gt;&lt;/a&gt;</code></pre>
 
 <h3><a id="Timespent" class="anchor" href="/wiki/Examples.html#Timespent"><span></span></a>Timespent</h3>
 
-<p>  Template: <code>&lt;span ng-bind=&quot;issue.fields.timespent | prettyHours&quot;/&gt;</code></p>
+<p>  Template:</p>
+
+<pre><code>&lt;span ng-bind=&quot;issue.fields.timespent | prettyHours&quot;/&gt;</code></pre>
 
 <h3><a id="Rate" class="anchor" href="/wiki/Examples.html#Rate"><span></span></a>Rate</h3>
 
