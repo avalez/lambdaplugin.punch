@@ -9,11 +9,13 @@
 
 	"bundles": {
 		"/css/all.css": [
+			"/css/highlight.css",
 			"/css/nivo-slider.css",
 			"/css/nivo-slider-themes/default/default.css",
 			"/css/main.css"
 		],
 		"/js/all.js": [
+			"/js/highlight.pack.js",
 			"/js/jquery.nivo.slider.pack.js",
 			"/js/site.js"
 		]	
