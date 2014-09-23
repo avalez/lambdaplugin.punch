@@ -11,9 +11,9 @@
     "jsonfile": "1.1.1",
     "gift": "0.3.0",
     "fs-extra": "0.8.1"
-  }
+  },
   "scripts": {
     "pretest": "./node_modules/punch/bin/punch p",
     "test": "echo OK"
-  },
+  }
 }
